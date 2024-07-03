@@ -30,7 +30,7 @@ ticTacToeMiniContainers.forEach(ele => {
             `;
         }
         xo = xo === "x" ? "o" : "x";
-        check();
+        checkWinner();
     });
 });
 
@@ -60,7 +60,7 @@ function restart() {
     dialog2.close();
 }
 
-function check() {
+function checkWinner() {
     let isTrueForX = Array(8).fill(true);
     let isTrueForO = Array(8).fill(true);
     for(let i = 0; i < ticTacToeMiniContainers.length; i++) {

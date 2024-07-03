@@ -21,25 +21,6 @@ function colorChanger() {
         if(ele.checked) {
             localStorage.setItem("color", ele.value);
             inputColor();
-            // switch(ele.value) {
-            //     case "dark":
-            //         inputColor("dark");      
-            //         break;
-            //     case "aqua":
-            //         inputColor("aqua");
-            //         break;
-            //     case "mist":
-            //         inputColor("mist");
-            //         break;
-            //     case "crimson":
-            //         inputColor("crimson");
-            //         break;
-            //     case "icy":
-            //         inputColor("icy");
-            //         break;
-            //     default:
-            //         inputColor("light");
-            // }
         }
     });
 } 
