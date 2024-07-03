@@ -191,5 +191,4 @@ function check() {
 
 restartBtn.addEventListener("click", restart);
 
-const something = ticTacToeContainer.querySelectorAll("*");
-console.log(something)
+
