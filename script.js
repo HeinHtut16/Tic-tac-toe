@@ -59,6 +59,10 @@ function removeColor() {
         ele.classList.add("winner-stick");
         ele.classList.add(`winner-stick${index+1}`);
     });
+    dialog2.classList.remove(...dialog2.classList);
+    dialog2.classList.add("dialog2")
+    restartBtn.classList.remove(...restartBtn.classList);
+    restartBtn.classList.add("restart-btn");
 }
 
 function inputColor() {
@@ -68,6 +72,8 @@ function inputColor() {
     changeColorBtn.classList.add(`${value}-button`);
     ticTacToeMiniContainers.forEach(ele => ele.classList.add(`${value}-border`));
     winnerSticks.forEach(ele => ele.classList.add(`${value}-button`));
+    dialog2.classList.add(`${value}`);
+    restartBtn.classList.add(`${value}-button`);
 }
 
 changeColorBtn.addEventListener("click", () => {
