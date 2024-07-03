@@ -87,3 +87,34 @@
 .icy-border {
     border-color: #1995AD;
 }
+
+.indigo {
+    background-color: #363237;
+    color: #2D4262;
+}
+
+.indigo-button {
+    background-color: #2D4262;
+    border: 1px solid #2D4262;
+    color: #363237;
+}
+
+.indigo-border {
+    border-color: #2D4262;
+}
+
+.candy {
+    background-color: #F1F3CE;
+    color: #F62A00;
+}
+
+.candy-button {
+    background-color: #F62A00;
+    border: 1px solid #F62A00;
+    color: #F1F3CE;
+}
+
+.candy-border {
+    border-color: #F62A00;
+}
+

@@ -14,7 +14,7 @@ let player2Score = 0;
 let player1 = "x";
 let player2 = "o";
 let nonDrawRound = false;
-let playerWins;
+let playerWins = false;
 
 ticTacToeMiniContainers.forEach(ele => {
     ele.addEventListener("click", () => {
@@ -41,6 +41,7 @@ function doesXOrOExist(value) {
 
 function restart() {
     xo = "x";
+    playerWins = false;
     let isPlayer1X = document.querySelector(".player1 .fa-xmark");
     if(isPlayer1X) {
         player1xo.classList.replace("fa-xmark", "fa-o");
