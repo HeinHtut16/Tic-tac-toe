@@ -139,6 +139,7 @@ input[type=radio] {
     width: 10rem;
     padding: 1rem 0;
     cursor: pointer;
+    font-size: 1.6rem;
 }
 
 .winner-stick {
