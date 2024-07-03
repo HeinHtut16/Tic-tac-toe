@@ -118,3 +118,19 @@
     border-color: #F62A00;
 }
 
+.orangish {
+    background-color: #F7EFE2;
+    color: #F25C00;
+}
+
+.orangish-button {
+    background-color: #F25C00;
+    border: 1px solid #F25C00;
+    color: #F7EFE2;
+}
+
+.orangish-border {
+    border-color: #F25C00;
+}
+
+
