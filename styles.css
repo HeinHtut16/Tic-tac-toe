@@ -194,8 +194,9 @@ input[type=radio] {
     padding-top: 10rem;
     text-align: center;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 5.5rem;
 }
 
 .result,
@@ -251,6 +252,8 @@ input[type=radio] {
 
     .players-container {
         max-width: 45rem;
+        padding-top: 11.5rem;
+        gap: 1.7rem;
     }
 
     .result,
@@ -260,19 +263,23 @@ input[type=radio] {
     }
 
     .fa-user {
-        font-size: 3.5rem;
+        font-size: 3rem;
+    }
+
+    .player-text {
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 449px) {
     .tic-tac-toe-container {
-        width: 30rem;
-        height: 30rem;
+        width: 36rem;
+        height: 36rem;
     }
 
     .tic-tac-toe-mini-container {
-        width: 10rem;
-        height: 10rem;;
+        width: 12rem;
+        height: 12rem;;
     }
 
     .tic-tac-toe-container .fa-xmark {
@@ -284,18 +291,19 @@ input[type=radio] {
     }
 
     .winner-stick {
-        width: 30rem;
+        width: 36rem;
         height: 1rem;
     }
 
     .winner-stick7,
     .winner-stick8 {
-        width: 42rem;
+        width: 50rem;
     }
 
     .players-container {
         max-width: 30rem;
         padding-top: 12rem;
+        gap: 1rem;
     }
 
     .result,
@@ -309,7 +317,7 @@ input[type=radio] {
     }
 
     .player-text {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }
 
