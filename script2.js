@@ -42,6 +42,7 @@ function doesXOrOExist(value) {
 function restart() {
     xo = "x";
     playerWins = false;
+    nonDrawRound = false;
     let isPlayer1X = document.querySelector(".player1 .fa-xmark");
     if(isPlayer1X) {
         player1xo.classList.replace("fa-xmark", "fa-o");
@@ -185,7 +186,7 @@ function check() {
         if(descendantsLength === 26) {
         dialog2.showModal();
         winnerText.textContent = "Draw!";
-    }
+        }
     }
 }
 
