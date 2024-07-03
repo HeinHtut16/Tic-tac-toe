@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="colors.css">
+    <link rel="stylesheet" href="icon/css/all.min.css">
+    <script src="script.js" defer></script>
+    <script src="script2.js" defer></script>
+</head>
+<body>  
+    <main> 
+        
+        <div class="outer-container">
+            <div class="color-changer-container">
+                <button class="change-color-btn">Change Color</button>
+                <div class="players-container">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="player1">
+                        <h2 class="player-text">Player 1</h2>
+                        <i class="fa-solid fa-xmark x-text xo"></i>
+                    </div>
+                    <div class="result">
+                        <span class="player1-result">0</span>
+                        :
+                        <span class="player2-result">0</span>
+                    </div>
+                    <div class="player2">
+                        <h2 class="player-text">Player 2</h2>
+                        <i class="fa-solid fa-o o-text xo"></i>
+                    </div>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <dialog>
+                    <form>
+                        <label for="light">
+                            <input type="radio" name="color" id="light" value="light" checked> Light
+                        </label>
+                        <label for="dark">
+                            <input type="radio" name="color" id="dark" value="dark"> Dark
+                        </label>
+                        <label for="aqua">
+                            <input type="radio" name="color" id="aqua" value="aqua"> Aqua
+                        </label>
+                        <label for="mist">
+                            <input type="radio" name="color" id="mist" value="mist"> Mist
+                        </label>
+                        <label for="crimson">
+                            <input type="radio" name="color" id="crimson" value="crimson"> Crimson
+                        </label>
+                        <label for="icy">
+                            <input type="radio" name="color" id="icy" value="icy"> Icy
+                        </label>
+                        <button type="button" class="cancel">Cancel</button>
+                        <button type="submit" class="save">Save</button>
+                    </form>
+                </dialog>
+                <dialog class="dialog2">
+                    <h1 class="winner-text">Player 1 Wins!</h1>
+                    <button type="button" class="restart-btn">Restart</button>
+                </dialog>
+            </div>
+            <div class="tic-tac-toe-container">
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container1"></div>
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container2"></div>
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container3"></div>
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container4"></div>
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container5"></div>
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container6"></div>
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container7"></div>
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container8"></div>
+                <div class="tic-tac-toe-mini-container tic-tac-toe-mini-container9"></div>
+                <div class="winner-stick winner-stick1"></div>
+                <div class="winner-stick winner-stick2"></div>
+                <div class="winner-stick winner-stick3"></div>
+                <div class="winner-stick winner-stick4"></div>
+                <div class="winner-stick winner-stick5"></div>
+                <div class="winner-stick winner-stick6"></div>
+                <div class="winner-stick winner-stick7"></div>
+                <div class="winner-stick winner-stick8"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

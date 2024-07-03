@@ -1,0 +1,97 @@
+const changeColorBtn = document.querySelector(".change-color-btn");
+const dialog = document.querySelector("dialog");
+const cancel = document.querySelector(".cancel");
+const save = document.querySelector(".save");
+const form = document.querySelector("form");
+const radioButtons = document.querySelectorAll("input[type=radio]");
+const main = document.querySelector("main");
+const ticTacToeMiniContainers = document.querySelectorAll(".tic-tac-toe-mini-container");
+const winnerSticks = document.querySelectorAll(".winner-stick");
+
+document.addEventListener("DOMContentLoaded", () => {
+    let radioValue = localStorage.getItem("color");
+    inputColor();
+    radioButtons.forEach(btn => {
+       btn.value === radioValue && (btn.checked = true)
+    });
+});
+
+function colorChanger() {
+    radioButtons.forEach(ele => {
+        if(ele.checked) {
+            localStorage.setItem("color", ele.value);
+            inputColor();
+            // switch(ele.value) {
+            //     case "dark":
+            //         inputColor("dark");      
+            //         break;
+            //     case "aqua":
+            //         inputColor("aqua");
+            //         break;
+            //     case "mist":
+            //         inputColor("mist");
+            //         break;
+            //     case "crimson":
+            //         inputColor("crimson");
+            //         break;
+            //     case "icy":
+            //         inputColor("icy");
+            //         break;
+            //     default:
+            //         inputColor("light");
+            // }
+        }
+    });
+} 
+
+function removeColor() {
+    main.classList.remove(...main.classList);
+    changeColorBtn.classList.remove(...changeColorBtn.classList);
+    changeColorBtn.classList.add("change-color-btn");
+    ticTacToeMiniContainers.forEach(ele => ele.classList.remove(...ele.classList));
+    ticTacToeMiniContainers.forEach((ele, index) =>{
+        ele.classList.add("tic-tac-toe-mini-container");
+        ele.classList.add(`tic-tac-toe-mini-container${index+1}`);
+
+    });
+    winnerSticks.forEach(ele => ele.classList.remove(...ele.classList));
+    winnerSticks.forEach((ele, index) => {
+        ele.classList.add("winner-stick");
+        ele.classList.add(`winner-stick${index+1}`);
+    });
+}
+
+function inputColor() {
+    let value = localStorage.getItem("color");
+    removeColor();
+    main.classList.add(`${value}`);
+    changeColorBtn.classList.add(`${value}-button`);
+    ticTacToeMiniContainers.forEach(ele => ele.classList.add(`${value}-border`));
+    winnerSticks.forEach(ele => ele.classList.add(`${value}-button`));
+}
+
+changeColorBtn.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+cancel.addEventListener("click", () => {
+    dialog.close();
+});
+
+dialog.addEventListener("click", e => {
+    const dialogDimensions = dialog.getBoundingClientRect()
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+      dialog.close();
+    }
+});
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    colorChanger();
+    dialog.close();
+});
