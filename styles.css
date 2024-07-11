@@ -241,6 +241,15 @@ input[type=radio] {
     font-size: 2.4rem;
 }
 
+.players-container-modifier {
+    justify-content: space-between;
+    gap: 0;
+}
+
+.result-modifier {
+    margin-left: 5rem;  
+}
+
 @media (max-width: 749px) {
     .tic-tac-toe-container {
         width: 45rem;
@@ -290,6 +299,10 @@ input[type=radio] {
 
     .player-text {
         font-size: 2rem;
+    }
+
+    .result-modifier {
+        margin-left: 4rem;  
     }
 }
 
@@ -342,5 +355,10 @@ input[type=radio] {
     .player-text {
         font-size: 1.8rem;
     }
+
+    .result-modifier {
+        margin-left: 3.8rem;  
+    }
+
 }
 

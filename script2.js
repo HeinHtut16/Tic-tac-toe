@@ -11,8 +11,10 @@ const dialog3 = document.querySelector(".dialog3");
 const pvpBtn = document.querySelector(".pvp-btn");
 const pveBtn = document.querySelector(".pve-btn");
 const playerText1 = document.querySelector(".player-text1");
-const playerText2 = document.querySelector(".player-text2");
+const playerText2 = document.querySelector(".player-text2")
 const secondIcon = document.querySelector(".second-icon");
+const playersContainer = document.querySelector(".players-container");
+const result = document.querySelector(".result");
 let xExists;
 let oExists;
 let player1Score = 0;
@@ -38,6 +40,8 @@ pvpBtn.addEventListener("click", () => {
     playerText2.textContent = secondText;
     secondIcon.classList.remove("fa-desktop");
     secondIcon.classList.add("fa-user");
+    playersContainer.classList.remove("players-container-modifier");
+    result.classList.remove("result-modifier")
     ticTacToeMiniContainers.forEach(ele => {
         ele.addEventListener("click", () => {
             if(ele.innerHTML !== "") return;
