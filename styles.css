@@ -233,11 +233,12 @@ input[type=radio] {
 
 .pvp-btn, 
 .pve-btn {
-    width: 20rem;
+    width: 25rem;
     display: block;
     padding: 1rem 0.2rem;
     margin: 1rem 0;
     cursor: pointer;
+    font-size: 2.4rem;
 }
 
 @media (max-width: 749px) {
