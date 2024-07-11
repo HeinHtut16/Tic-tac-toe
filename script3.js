@@ -10,9 +10,6 @@ const winnerText = document.querySelector(".winner-text");
 const dialog3 = document.querySelector(".dialog3");
 const pvpBtn = document.querySelector(".pvp-btn");
 const pveBtn = document.querySelector(".pve-btn");
-const playerText1 = document.querySelector(".player-text1");
-const playerText2 = document.querySelector(".player-text2");
-const secondIcon = document.querySelector(".second-icon");
 let xExists;
 let oExists;
 let player1Score = 0;
@@ -21,100 +18,53 @@ let player1 = "x";
 let player2 = "o";
 let nonDrawRound = false;
 let playerWins = false;
-let draw = false;
 let randomNum = Math.floor(Math.random() * 9);
 let cond;
-let pvpOrPve;
-let firstText;
-let secondText;
 dialog3.showModal();
+ticTacToeMiniContainers.forEach(ele => {
+    let descendantsLength = ticTacToeContainer.querySelectorAll("*").length;
+    ele.addEventListener("click", () => {
+        if(ele.innerHTML !== "") return;
 
-pvpBtn.addEventListener("click", () => {
-    dialog3.close();
-    pvpOrPve = "pvp";
-    firstText = "Player 1";
-    secondText = "Player 2";
-    playerText1.textContent = firstText;
-    playerText2.textContent = secondText;
-    secondIcon.classList.remove("fa-desktop");
-    secondIcon.classList.add("fa-user");
-    ticTacToeMiniContainers.forEach(ele => {
-        ele.addEventListener("click", () => {
-            if(ele.innerHTML !== "") return;
-    
-            if(xo === "x") {
-                ele.innerHTML = `
-                <i class="fa-solid fa-xmark"></i>
-                `;           
-            } else {
-                ele.innerHTML = `
-                <i class="fa-solid fa-o"></i>
-                `;
-            }
-            xo = xo === "x" ? "o" : "x";
-            checkWinner();
-        });
-    });
-});
+        if(xo === "x") {
+            ele.innerHTML = `
+            <i class="fa-solid fa-xmark"></i>
+            `;           
+        } else {
+            ele.innerHTML = `
+            <i class="fa-solid fa-o"></i>
+            `;
+        }
+        xo = xo === "x" ? "o" : "x";
 
-pveBtn.addEventListener("click", () => {
-    dialog3.close();
-    pvpOrPve = "pve";
-    firstText = "Player";
-    secondText = "Computer";
-    playerText1.textContent = firstText;
-    playerText2.textContent = secondText;
-    secondIcon.classList.remove("fa-user");
-    secondIcon.classList.add("fa-desktop");
-    ticTacToeMiniContainers.forEach(ele => {
-        let descendantsLength = ticTacToeContainer.querySelectorAll("*").length;
-        ele.addEventListener("click", () => {
-            if(ele.innerHTML !== "") return;
-
-            if(xo === "x") {
-                ele.innerHTML = `
-                <i class="fa-solid fa-xmark"></i>
-                `;           
-            } else {
-                ele.innerHTML = `
-                <i class="fa-solid fa-o"></i>
-                `;
-            }
-            xo = xo === "x" ? "o" : "x";
-
-            checkWinner();
-            
-            if(descendantsLength < 26 && !playerWins && !draw) {
-                setTimeout(() => {
-                    do {
-                        cond = true;
-                        randomNum = Math.floor(Math.random() * 9);
-                        if(ticTacToeMiniContainers[randomNum].innerHTML === "") {
-                            if(xo === "x") {
-                                ticTacToeMiniContainers[randomNum].innerHTML = `
-                                <i class="fa-solid fa-xmark"></i>
-                                `;
-                                cond = false;
-                                
-                            } else {
-                                ticTacToeMiniContainers[randomNum].innerHTML = `
-                                <i class="fa-solid fa-o"></i>
-                                `;
-                                cond = false;   
-                            }
+        checkWinner();
+        
+        if(descendantsLength < 26 && !playerWins) {
+            setTimeout(() => {
+                do {
+                    cond = true;
+                    randomNum = Math.floor(Math.random() * 9);
+                    if(ticTacToeMiniContainers[randomNum].innerHTML === "") {
+                        if(xo === "x") {
+                            ticTacToeMiniContainers[randomNum].innerHTML = `
+                            <i class="fa-solid fa-xmark"></i>
+                            `;
+                            cond = false;
+                            
+                        } else {
+                            ticTacToeMiniContainers[randomNum].innerHTML = `
+                            <i class="fa-solid fa-o"></i>
+                            `;
+                            cond = false;   
                         }
-                    } while (cond)
-                    xo = xo === "x" ? "o" : "x";
-                    checkWinner();
-                }, 500);
-            }
-        });
+                    }
+                } while (cond)
+                xo = xo === "x" ? "o" : "x";
+                checkWinner();
+            }, 500);
+        }
     });
 });
-
-// optionsBtn.addEventListener("click", () => {
-//     dialog3.showModal();
-// });
 
 function doesXOrOExist(value) {
     xExists = document.querySelector(`.tic-tac-toe-mini-container${value+1} .fa-xmark`);
@@ -125,17 +75,14 @@ function restart() {
     xo = "x";
     playerWins = false;
     nonDrawRound = false;
-    draw = false;
     let isPlayer1X = document.querySelector(".player1 .fa-xmark");
-    if(pvpOrPve === "pvp") {
-        if(isPlayer1X) {
-            player1xo.classList.replace("fa-xmark", "fa-o");
-            player2xo.classList.replace("fa-o", "fa-xmark");
-        } else {
-            player1xo.classList.replace("fa-o", "fa-xmark");
-            player2xo.classList.replace("fa-xmark", "fa-o");
-        }
-    }
+    // if(isPlayer1X) {
+    //     player1xo.classList.replace("fa-xmark", "fa-o");
+    //     player2xo.classList.replace("fa-o", "fa-xmark");
+    // } else {
+    //     player1xo.classList.replace("fa-o", "fa-xmark");
+    //     player2xo.classList.replace("fa-xmark", "fa-o");
+    // }
     ticTacToeMiniContainers.forEach(ele => {
         ele.innerHTML = "";
     });
@@ -236,11 +183,11 @@ function checkWinner() {
             if(isPlayer1X) {
                 player1Score++;
                 player1Result.textContent = player1Score;
-                winnerText.textContent = `${firstText} Wins!`;
+                winnerText.textContent = "Player Wins!";
             } else {
                 player2Score++;
                 player2Result.textContent = player2Score;
-                winnerText.textContent = `${secondText} Wins!`;
+                winnerText.textContent = "Computer Wins!";
             }
             dialog2.showModal();
         }
@@ -256,11 +203,11 @@ function checkWinner() {
             if(isPlayer1X) {   
                 player2Score++;
                 player2Result.textContent = player2Score;
-                winnerText.textContent = `${secondText} Wins!`;
+                winnerText.textContent = "Computer Wins!";
             } else {
                 player1Score++;
                 player1Result.textContent = player1Score;
-                winnerText.textContent = `${firstText} Wins!`;
+                winnerText.textContent = "Player Wins!";
             }
             dialog2.showModal();         
         }
@@ -271,7 +218,6 @@ function checkWinner() {
         if(descendantsLength === 26) {
         dialog2.showModal();
         winnerText.textContent = "Draw!";
-        draw = true;
         }
     }
 }

@@ -7,6 +7,7 @@ const radioButtons = document.querySelectorAll("input[type=radio]");
 const main = document.querySelector("main");
 const ticTacToeMiniContainers = document.querySelectorAll(".tic-tac-toe-mini-container");
 const winnerSticks = document.querySelectorAll(".winner-stick");
+const optionsBtn = document.querySelector(".options-btn");
 
 document.addEventListener("DOMContentLoaded", () => {
     let radioValue = localStorage.getItem("color");
@@ -42,8 +43,16 @@ function removeColor() {
     });
     dialog2.classList.remove(...dialog2.classList);
     dialog2.classList.add("dialog2")
+    dialog3.classList.remove(...dialog3.classList);
+    dialog3.classList.add("dialog3")
     restartBtn.classList.remove(...restartBtn.classList);
     restartBtn.classList.add("restart-btn");
+    pvpBtn.classList.remove(...pvpBtn.classList);
+    pvpBtn.classList.add("pvp-btn");
+    pveBtn.classList.remove(...pveBtn.classList);
+    pveBtn.classList.add("pve-btn");
+    // optionsBtn.classList.remove(...optionsBtn.classList);
+    // optionsBtn.classList.add("options-btn");
 }
 
 function inputColor() {
@@ -55,6 +64,10 @@ function inputColor() {
     winnerSticks.forEach(ele => ele.classList.add(`${value}-button`));
     dialog2.classList.add(`${value}`);
     restartBtn.classList.add(`${value}-button`);
+    dialog3.classList.add(`${value}`);
+    pvpBtn.classList.add(`${value}-button`);
+    pveBtn.classList.add(`${value}-button`);
+    // optionsBtn.classList.add(`${value}-button`);
 }
 
 changeColorBtn.addEventListener("click", () => {
