@@ -71,8 +71,12 @@ pveBtn.addEventListener("click", () => {
     secondIcon.classList.remove("fa-user");
     secondIcon.classList.add("fa-desktop");
     ticTacToeMiniContainers.forEach(ele => {
-        let descendantsLength = ticTacToeContainer.querySelectorAll("*").length;
+        // let descendantsLength = ticTacToeContainer.querySelectorAll("*").length; // this was not needed.
         ele.addEventListener("click", () => {
+            let descendantsLength = ticTacToeContainer.querySelectorAll("*").length;
+
+            if(descendantsLength % 2 === 0) return;
+            
             if(ele.innerHTML !== "") return;
 
             if(xo === "x") {
@@ -88,7 +92,7 @@ pveBtn.addEventListener("click", () => {
 
             checkWinner();
             
-            if(descendantsLength < 26 && !playerWins && !draw) {
+            if(!playerWins && !draw) {
                 setTimeout(() => {
                     do {
                         cond = true;
@@ -273,9 +277,9 @@ function checkWinner() {
     if(!nonDrawRound) {
         let descendantsLength = ticTacToeContainer.querySelectorAll("*").length;
         if(descendantsLength === 26) {
-        dialog2.showModal();
-        winnerText.textContent = "Draw!";
-        draw = true;
+            dialog2.showModal();
+            winnerText.textContent = "Draw!";
+            draw = true;
         }
     }
 }

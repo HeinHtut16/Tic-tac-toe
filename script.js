@@ -34,7 +34,6 @@ function removeColor() {
     ticTacToeMiniContainers.forEach((ele, index) =>{
         ele.classList.add("tic-tac-toe-mini-container");
         ele.classList.add(`tic-tac-toe-mini-container${index+1}`);
-
     });
     winnerSticks.forEach(ele => ele.classList.remove(...ele.classList));
     winnerSticks.forEach((ele, index) => {
