@@ -56,7 +56,7 @@ function removeColor() {
 
 function inputColor() {
     let value = localStorage.getItem("color");
-    if(!value) value = "light";
+    if(!value) value = "candy";
     removeColor();
     main.classList.add(`${value}`);
     changeColorBtn.classList.add(`${value}-button`);
