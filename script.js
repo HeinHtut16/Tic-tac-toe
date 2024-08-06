@@ -50,8 +50,8 @@ function removeColor() {
     pvpBtn.classList.add("pvp-btn");
     pveBtn.classList.remove(...pveBtn.classList);
     pveBtn.classList.add("pve-btn");
-    // optionsBtn.classList.remove(...optionsBtn.classList);
-    // optionsBtn.classList.add("options-btn");
+    optionsBtn.classList.remove(...optionsBtn.classList);
+    optionsBtn.classList.add("options-btn");
 }
 
 function inputColor() {
@@ -66,7 +66,7 @@ function inputColor() {
     dialog3.classList.add(`${value}`);
     pvpBtn.classList.add(`${value}-button`);
     pveBtn.classList.add(`${value}-button`);
-    // optionsBtn.classList.add(`${value}-button`);
+    optionsBtn.classList.add(`${value}-button`);
 }
 
 changeColorBtn.addEventListener("click", () => {
