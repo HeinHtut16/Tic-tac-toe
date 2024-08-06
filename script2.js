@@ -90,7 +90,6 @@ pveBtn.addEventListener("click", () => {
         const clickHandlerPve = () => {
             let descendantsLength = ticTacToeContainer.querySelectorAll("*").length;
             let isPlayerX = document.querySelector(".player1 .fa-xmark");
-            console.log(descendantsLength);
             if(isPlayerX) {
                 if(descendantsLength % 2 === 0) return;
             } else {
