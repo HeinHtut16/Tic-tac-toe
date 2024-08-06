@@ -250,6 +250,10 @@ input[type=radio] {
     margin-left: 5rem;  
 }
 
+video {
+    display: none;
+}
+
 @media (max-width: 749px) {
     .tic-tac-toe-container {
         width: 45rem;

@@ -15,6 +15,9 @@ const playerText2 = document.querySelector(".player-text2")
 const secondIcon = document.querySelector(".second-icon");
 const playersContainer = document.querySelector(".players-container");
 const result = document.querySelector(".result");
+const losingSound = document.querySelector(".losing-sound");
+const roundDraw = document.querySelector(".round-draw");
+const winningSound = document.querySelector(".winning-sound");
 let xExists;
 let oExists;
 let player1Score = 0;
@@ -47,6 +50,8 @@ pvpBtn.addEventListener("click", () => {
     result.classList.remove("result-modifier");
     ticTacToeMiniContainers.forEach(ele => {    
         const clickHandlerPvp = () => {
+            if(playerWins || draw) return;
+
             if(ele.innerHTML !== "") return;
     
             if(xo === "x") {
@@ -93,6 +98,8 @@ pveBtn.addEventListener("click", () => {
             }
             
             if(ele.innerHTML !== "") return;
+
+            if(playerWins || draw) return;
 
             if(xo === "x") {
                 ele.innerHTML = `
@@ -146,8 +153,21 @@ function restart() {
     });
     dialog2.close();
     if(pvpOrPve === "pve" && (!isPlayer1X)) {
-        placeRandomMark();
+        setTimeout(() => {
+            if(xo === "x") {
+                ticTacToeMiniContainers[4].innerHTML = `
+                <i class="fa-solid fa-xmark"></i>
+                `;
+                
+            } else {
+                ticTacToeMiniContainers[4].innerHTML = `
+                <i class="fa-solid fa-o"></i>
+                `;   
+            }
+            xo = xo === "x" ? "o" : "x";
+        }, 500);
     }
+
 }
 
 function checkWinner() {
@@ -238,6 +258,7 @@ function checkWinner() {
             nonDrawRound = true;
             playerWins = true;
             let isPlayer1X = document.querySelector(".player1 .fa-xmark");
+            let playerOrComputer = document.querySelector(".player-text2").textContent;
             if(isPlayer1X) {
                 player1Score++;
                 player1Result.textContent = player1Score;
@@ -247,7 +268,20 @@ function checkWinner() {
                 player2Result.textContent = player2Score;
                 winnerText.textContent = `${secondText} Wins!`;
             }
-            dialog2.showModal();
+            setTimeout(() => {
+                dialog2.showModal();
+            }, 500);
+            if(playerOrComputer === "Computer") {
+                if(isPlayer1X) {
+                    winningSound.play();
+                } else {
+                    losingSound.play();
+                }
+            } else {
+                winningSound.play(); // should have been player 1 wins and player 2 wins sound effect. But I can't find them.
+            }
+            winningSound.currentTime = 0;
+            losingSound.currentTime = 0;
         }
     });
 
@@ -258,6 +292,7 @@ function checkWinner() {
             nonDrawRound = true;
             playerWins = true;
             let isPlayer1X = document.querySelector(".player1 .fa-xmark");
+            let playerOrComputer = document.querySelector(".player-text2").textContent;
             if(isPlayer1X) {   
                 player2Score++;
                 player2Result.textContent = player2Score;
@@ -267,16 +302,33 @@ function checkWinner() {
                 player1Result.textContent = player1Score;
                 winnerText.textContent = `${firstText} Wins!`;
             }
-            dialog2.showModal();         
+            setTimeout(() => {
+                dialog2.showModal();
+            }, 500);    
+            if(playerOrComputer === "Computer") {
+                if(isPlayer1X) {
+                    losingSound.play();
+                } else {
+                    winningSound.play();
+                }
+            } else {
+                winningSound.play(); // should have been player 1 wins and player 2 wins sound effect. But I can't find them.
+            }     
+            winningSound.currentTime = 0;
+            losingSound.currentTime = 0;
         }
     }); 
 
     if(!nonDrawRound) {
         let descendantsLength = ticTacToeContainer.querySelectorAll("*").length;
         if(descendantsLength === 26) {
-            dialog2.showModal();
+            setTimeout(() => {
+                dialog2.showModal();
+            }, 500);
             winnerText.textContent = "Draw!";
             draw = true;
+            roundDraw.play();
+            roundDraw.currentTime = 0;
         }
     }
 }
