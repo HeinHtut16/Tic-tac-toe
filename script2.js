@@ -272,16 +272,16 @@ function checkWinner() {
             }, 500);
             if(playerOrComputer === "Computer") {
                 if(isPlayer1X) {
-                    winningSound.play();
                     winningSound.currentTime = 0;
-                } else {
-                    losingSound.play();
-                    losingSound.currentTime = 0;
+                    winningSound.play();
 
+                } else {
+                    losingSound.currentTime = 0;
+                    losingSound.play();
                 }
             } else {
-                winningSound.play(); // should have been player 1 wins and player 2 wins sound effect. But I can't find them.
                 winningSound.currentTime = 0;
+                winningSound.play(); // should have been player 1 wins and player 2 wins sound effect. But I can't find them.
             }
 
 
@@ -310,15 +310,15 @@ function checkWinner() {
             }, 500);    
             if(playerOrComputer === "Computer") {
                 if(isPlayer1X) {
-                    losingSound.play();
                     losingSound.currentTime = 0;
+                    losingSound.play();
                 } else {
-                    winningSound.play();
                     winningSound.currentTime = 0;
+                    winningSound.play();
                 }
             } else {
-                winningSound.play(); // should have been player 1 wins and player 2 wins sound effect. But I can't find them.
                 winningSound.currentTime = 0;
+                winningSound.play(); // should have been player 1 wins and player 2 wins sound effect. But I can't find them.
             }     
         }
     }); 
