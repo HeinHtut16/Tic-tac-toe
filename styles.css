@@ -250,7 +250,7 @@ input[type=radio] {
     margin-left: 5rem;  
 }
 
-video {
+/* video {
     display: none !important;
     visibility: hidden;
     width: 0;
@@ -258,7 +258,7 @@ video {
     position: absolute;
     top: -9999px;
     left: -9999px;
-}
+} */
 
 @media (max-width: 749px) {
     .tic-tac-toe-container {
