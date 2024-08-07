@@ -252,6 +252,9 @@ input[type=radio] {
 
 video {
     display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
 }
 
 @media (max-width: 749px) {
