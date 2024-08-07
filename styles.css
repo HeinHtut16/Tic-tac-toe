@@ -251,7 +251,7 @@ input[type=radio] {
 }
 
 video {
-    display: none;
+    display: none !important;
     visibility: hidden;
     width: 0;
     height: 0;
