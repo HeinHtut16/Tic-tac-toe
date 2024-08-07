@@ -269,7 +269,7 @@ function checkWinner() {
             }
             setTimeout(() => {
                 dialog2.showModal();
-            }, 500);
+            }, 1200);
             if(playerOrComputer === "Computer") {
                 if(isPlayer1X) {
                     winningSound.currentTime = 0;
@@ -307,7 +307,7 @@ function checkWinner() {
             }
             setTimeout(() => {
                 dialog2.showModal();
-            }, 500);    
+            }, 1200);    
             if(playerOrComputer === "Computer") {
                 if(isPlayer1X) {
                     losingSound.currentTime = 0;
@@ -328,7 +328,7 @@ function checkWinner() {
         if(descendantsLength === 26) {
             setTimeout(() => {
                 dialog2.showModal();
-            }, 500);
+            }, 1200);
             winnerText.textContent = "Draw!";
             draw = true;
             roundDraw.play();
