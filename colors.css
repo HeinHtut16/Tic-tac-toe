@@ -1,136 +1,22 @@
-.light {
-    background-color: #fff;
-    color: #000;
+:root {
+    --page-background-color: #fff;
+    --page-text-color: #000;
+    --button-background-color: #000;
+    --button-text-color: #fff;
+    --border-color: #000;
 }
 
-.light-button {
-    background-color: #000;
-    border: 1px solid #000;
-    color: #fff;
+.multi-color {
+    background-color: var(--page-background-color);
+    color: var(--page-text-color);
 }
 
-.light-border {
-    border-color: #000;
+.multi-color-button {
+    background-color: var(--button-background-color);
+    border: 1px solid var(--border-color);
+    color: var(--button-text-color);
 }
 
-.dark {
-    background-color: #000;
-    color: #fff;
+.multi-color-border {
+    border-color: var(--border-color);
 }
-
-.dark-button {
-    background-color: #fff;
-    border: 1px solid #fff;
-    color: #000;
-}
-
-.dark-border {
-    border-color: #fff;
-}
-
-.aqua {
-    background-color: #66A5AD;
-    color: #07575B;
-}
-
-.aqua-button {
-    background-color: #07575B;
-    border: 1px solid #07575B;
-    color: #66A5AD;
-}
-
-.aqua-border {
-    border-color: #07575B;
-}
-
-.mist {
-    background-color: #90AFC5;
-    color: #336B87;
-}
-
-.mist-button {
-    background-color: #336B87;
-    border: 1px solid #336B87;
-    color: #90AFC5;
-}
-
-.mist-border {
-    border-color: #336B87;
-}
-
-.crimson {
-    background-color: #1E434C;
-    color: #8D230F;
-}
-
-.crimson-button {
-    background-color: #8D230F;
-    border: 1px solid #8D230F;
-    color: #1E434C;
-}
-
-.crimson-border {
-    border-color: #8D230F;
-}
-
-.icy {
-    background-color: #A1D6E2;
-    color: #1995AD;
-}
-
-.icy-button {
-    background-color: #1995AD;
-    border: 1px solid #1995AD;
-    color: #A1D6E2;
-}
-
-.icy-border {
-    border-color: #1995AD;
-}
-
-.indigo {
-    background-color: #363237;
-    color: #2D4262;
-}
-
-.indigo-button {
-    background-color: #2D4262;
-    border: 1px solid #2D4262;
-    color: #363237;
-}
-
-.indigo-border {
-    border-color: #2D4262;
-}
-
-.candy {
-    background-color: #F1F3CE;
-    color: #F62A00;
-}
-
-.candy-button {
-    background-color: #F62A00;
-    border: 1px solid #F62A00;
-    color: #F1F3CE;
-}
-
-.candy-border {
-    border-color: #F62A00;
-}
-
-.orangish {
-    background-color: #F7EFE2;
-    color: #F25C00;
-}
-
-.orangish-button {
-    background-color: #F25C00;
-    border: 1px solid #F25C00;
-    color: #F7EFE2;
-}
-
-.orangish-border {
-    border-color: #F25C00;
-}
-
-

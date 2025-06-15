@@ -153,8 +153,8 @@ function restart() {
     dialog2.close();
     if(pvpOrPve === "pve" && (!isPlayer1X)) {
         setTimeout(() => {
-            if(xo === "x") {
-                ticTacToeMiniContainers[4].innerHTML = `
+            if(xo === "x") { // put random num instead of 4 for the bot to randomly make a move
+                ticTacToeMiniContainers[4].innerHTML = ` 
                 <i class="fa-solid fa-xmark"></i>
                 `;
                 

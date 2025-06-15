@@ -9,11 +9,23 @@ const ticTacToeMiniContainers = document.querySelectorAll(".tic-tac-toe-mini-con
 const winnerSticks = document.querySelectorAll(".winner-stick");
 const optionsBtn = document.querySelector(".options-btn");
 
+const colors = {
+    light: {primaryColor: "#fff", secondaryColor: "#000"},
+    dark: {primaryColor: "#000", secondaryColor: "#fff"},
+    aqua: {primaryColor: "#66A5AD", secondaryColor: "#07575B"},
+    mist: {primaryColor: "#90AFC5", secondaryColor: "#336B87"},
+    crimson: {primaryColor: "#1E434C", secondaryColor: "#8D230F"},
+    icy: {primaryColor: "#A1D6E2", secondaryColor: "#1995AD"},
+    indigo: {primaryColor: "#363237", secondaryColor: "#2D4262"},
+    candy: {primaryColor: "#F1F3CE", secondaryColor: "#F62A00"},
+    orangish: {primaryColor: "#F7EFE2", secondaryColor: "#F25C00"},
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     let radioValue = localStorage.getItem("color");
     inputColor();
     radioButtons.forEach(btn => {
-       btn.value === radioValue && (btn.checked = true)
+       btn.value === radioValue && (btn.checked = true);
     });
 });
 
@@ -26,49 +38,20 @@ function colorChanger() {
     });
 } 
 
-function removeColor() {
-    main.classList.remove(...main.classList);
-    changeColorBtn.classList.remove(...changeColorBtn.classList);
-    changeColorBtn.classList.add("change-color-btn");
-    ticTacToeMiniContainers.forEach(ele => ele.classList.remove(...ele.classList));
-    ticTacToeMiniContainers.forEach((ele, index) =>{
-        ele.classList.add("tic-tac-toe-mini-container");
-        ele.classList.add(`tic-tac-toe-mini-container${index+1}`);
-    });
-    winnerSticks.forEach(ele => ele.classList.remove(...ele.classList));
-    winnerSticks.forEach((ele, index) => {
-        ele.classList.add("winner-stick");
-        ele.classList.add(`winner-stick${index+1}`);
-    });
-    dialog2.classList.remove(...dialog2.classList);
-    dialog2.classList.add("dialog2")
-    dialog3.classList.remove(...dialog3.classList);
-    dialog3.classList.add("dialog3")
-    restartBtn.classList.remove(...restartBtn.classList);
-    restartBtn.classList.add("restart-btn");
-    pvpBtn.classList.remove(...pvpBtn.classList);
-    pvpBtn.classList.add("pvp-btn");
-    pveBtn.classList.remove(...pveBtn.classList);
-    pveBtn.classList.add("pve-btn");
-    optionsBtn.classList.remove(...optionsBtn.classList);
-    optionsBtn.classList.add("options-btn");
+function inputColor() {
+    let colorValue = localStorage.getItem("color") || "light";
+    document.documentElement.style.setProperty("--page-background-color", `${colors[colorValue].primaryColor}`);
+    document.documentElement.style.setProperty("--page-text-color", `${colors[colorValue].secondaryColor}`);
+    document.documentElement.style.setProperty("--button-background-color", `${colors[colorValue].secondaryColor}`);
+    document.documentElement.style.setProperty("--button-text-color", `${colors[colorValue].primaryColor}`);
+    document.documentElement.style.setProperty("--border-color", `${colors[colorValue].secondaryColor}`);
 }
 
-function inputColor() {
-    let value = localStorage.getItem("color");
-    if(!value) value = "light";
-    removeColor();
-    main.classList.add(`${value}`);
-    changeColorBtn.classList.add(`${value}-button`);
-    ticTacToeMiniContainers.forEach(ele => ele.classList.add(`${value}-border`));
-    winnerSticks.forEach(ele => ele.classList.add(`${value}-button`));
-    dialog2.classList.add(`${value}`);
-    restartBtn.classList.add(`${value}-button`);
-    dialog3.classList.add(`${value}`);
-    pvpBtn.classList.add(`${value}-button`);
-    pveBtn.classList.add(`${value}-button`);
-    optionsBtn.classList.add(`${value}-button`);
-}
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    colorChanger();
+    dialog.close();
+});
 
 changeColorBtn.addEventListener("click", () => {
     dialog.showModal();
@@ -90,8 +73,91 @@ dialog.addEventListener("click", e => {
     }
 });
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    colorChanger();
-    dialog.close();
-});
+
+
+
+
+
+
+// Old code
+function inputColorOld() {
+    let value = localStorage.getItem("color");
+    if(!value) value = "light";
+    switch(value) {
+        case "light":
+            propertyManipulator("light");
+        break;
+        case "dark":
+            propertyManipulator("dark");
+        break;
+        case "aqua":
+            propertyManipulator("aqua");
+        break;
+        case "mist":
+            propertyManipulator("mist");
+        break;
+        case "crimson":
+            propertyManipulator("crimson");
+        break;
+        case "icy":
+            propertyManipulator("icy");
+        break;
+        case "indigo":
+            propertyManipulator("indigo");
+        break;
+        case "candy":
+            propertyManipulator("candy");
+        break;
+        case "orangish":
+            propertyManipulator("orangish");
+        break;
+    }
+}
+
+function propertyManipulator(colorValue) {
+    let primaryColor;
+    let secondaryColor;
+    switch(colorValue) {
+        case "light":
+            primaryColor = "#fff";
+            secondaryColor = "#000";
+        break;
+        case "dark":
+            primaryColor = "#000";
+            secondaryColor = "#fff";
+        break;
+        case "aqua":
+            primaryColor = "#66A5AD";
+            secondaryColor = "#07575B";
+        break;
+        case "mist":
+            primaryColor = "#90AFC5";
+            secondaryColor = "#336B87";
+        break;
+        case "crimson":
+            primaryColor = "#1E434C";
+            secondaryColor = "#8D230F";
+        break;
+        case "icy":
+            primaryColor = "#A1D6E2";
+            secondaryColor = "#1995AD";
+        break;
+        case "indigo":
+            primaryColor = "#363237";
+            secondaryColor = "#2D4262";
+        break;
+        case "candy":
+            primaryColor = "#F1F3CE";
+            secondaryColor = "#F62A00";
+        break;
+        case "orangish":
+            primaryColor = "#F7EFE2";
+            secondaryColor = "#F25C00";
+        break;
+    }
+    document.documentElement.style.setProperty("--page-background-color", `${primaryColor}`);
+    document.documentElement.style.setProperty("--page-text-color", `${secondaryColor}`);
+    document.documentElement.style.setProperty("--button-background-color", `${secondaryColor}`);
+    document.documentElement.style.setProperty("--button-text-color", `${primaryColor}`);
+    document.documentElement.style.setProperty("--border-color", `${secondaryColor}`);
+}
